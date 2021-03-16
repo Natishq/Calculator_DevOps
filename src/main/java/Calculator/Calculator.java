@@ -1,13 +1,10 @@
 package Calculator;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 import java.lang.Math;
 public class Calculator
 {
-    private static final Logger logger = LogManager.getLogger(Calculator.class);
 
     public Calculator() {
     }
@@ -40,7 +37,6 @@ public class Calculator
                     number2 = scanner.nextDouble();
                 }
             } catch (InputMismatchException error) {
-                logger.error("Invalid input, Entered input is not a number");
                 return;
             }
             switch (choice) {
@@ -71,7 +67,6 @@ public class Calculator
     public double squareroot(double number1) {
         double result=0;
         try {
-            logger.info("[SQUARE ROOT] - " + number1);
             if(number1<0)
             {
                 result=Double.NaN;
@@ -80,11 +75,9 @@ public class Calculator
             else
             {
             result = Math.sqrt(number1);
-            logger.info("[RESULT - SQUARE ROOT] - " + result);
             }
         }
         catch (ArithmeticException error) {
-            logger.error("[EXCEPTION - SQUARE ROOT] - Cannot find square root of negative number " + error.getLocalizedMessage());
         }
         return result;
     }
@@ -92,7 +85,6 @@ public class Calculator
     public int factorial(int number1) {
         int result=1;
         try {
-            logger.info("[FACTORIAL] - " + number1);
             if(number1<0)
             {
                 result=-1;
@@ -102,11 +94,9 @@ public class Calculator
             {
                 for(int i=2;i<=number1;i++)
                     result*=i;
-                logger.info("[RESULT - FACTORIAL] - " + result);
             }
         }
         catch (ArithmeticException error) {
-            logger.error("[EXCEPTION - FACTORIAL] - Cannot find factorial of negative number " + error.getLocalizedMessage());
         }
         return result;
     }
@@ -114,7 +104,6 @@ public class Calculator
     public double natlog(double number1) {
         double result=0;
         try {
-            logger.info("[NATURAL LOGARITHM] - " + number1);
             if(number1<=0)
             {
                 result=Double.NaN;
@@ -123,19 +112,15 @@ public class Calculator
             else
             {
                 result = Math.log(number1);
-                logger.info("[RESULT - NATURAL LOGARITHM] - " + result);
             }
         }
         catch (ArithmeticException error) {
-            logger.error("[EXCEPTION - NATURAL LOGARITHM] - Cannot find natural logarithm of negative number or zero" + error.getLocalizedMessage());
         }
         return result;
     }
 
     public double power(double number1, double number2) {
-            logger.info("[POWER] - " + number1 + ", " + number2);
                 double result = Math.pow(number1,number2);
-            logger.info("[RESULT - POWER] - " + result);
         return result;
     }
 }
