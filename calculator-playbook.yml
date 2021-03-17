@@ -2,5 +2,5 @@
 - name: Pull docker image
   hosts: remoteserver
   tasks:
-    - name: create docker image
-      shell: docker run --rm natishq/calculatordevops:1.0.0
+    - name: Run docker image
+      shell: docker run -i -t natishq/calculatordevops:1.0.0
